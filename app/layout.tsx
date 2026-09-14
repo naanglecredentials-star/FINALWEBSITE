@@ -4,7 +4,6 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Chatbot } from "../components/Chatbot";
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -15,16 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-950 text-white antialiased`}>
-        {/* Animated Vanta background */}
-
-
+      <body className={`${inter.className} bg-[#f4f3ee] text-[#111111] antialiased`}>
         <Navbar />
-
         <main className="relative z-10 min-h-screen w-full">
           {children}
         </main>
-
         <Footer />
         <Chatbot />
       </body>
