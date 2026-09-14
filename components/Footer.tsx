@@ -8,7 +8,6 @@ const MotionP = motion.p as any;
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-
   const companyLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -18,51 +17,30 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-slate-950 pt-32 pb-0 px-6 overflow-hidden border-t border-white/5">
-      {/* Top Section */}
-      <div className="mx-auto flex flex-col lg:flex-row justify-between gap-20 mb-20 w-full max-w-[1500px] px-12">
-
-        {/* Left Side: Catchy Phrase & Icon Animation */}
-        <div className="lg:w-1/3 space-y-8">
-          <div className="relative w-16 h-16">
-            {/* Animated Logo/Icon */}
-            <MotionDiv
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 90, 180, 270, 360]
-              }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full"
-            />
-            <MotionDiv
-              animate={{ rotate: -360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="relative z-10 w-full h-full flex items-center justify-center"
-            >
-              <div className="w-8 h-8 border-t-2 border-r-2 border-indigo-500 rounded-tr-lg" />
-              <div className="absolute w-8 h-8 border-b-2 border-l-2 border-indigo-400 rounded-bl-lg" />
-              <div className="absolute w-2 h-2 bg-white rounded-full shadow-[0_0_10px_white]" />
-            </MotionDiv>
+    <footer className="relative bg-[#111111] text-white pt-24 sm:pt-32 pb-0 px-5 sm:px-8 overflow-hidden">
+      <div className="mx-auto flex flex-col lg:flex-row justify-between gap-16 mb-20 w-full max-w-[1380px]">
+        <div className="lg:w-1/2 space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20">
+              <div className="h-4 w-4 rounded-full border border-white/80" />
+            </div>
+            <span className="text-lg font-bold tracking-tight">Naangle</span>
           </div>
-
-          <div>
-            <h3 className="text-3xl font-bold text-white leading-tight">
-              The future is <span className="text-indigo-500">automated.</span> <br />
-              <span className="text-slate-500 text-xl font-medium mt-2 block italic">Scale without limits.</span>
-            </h3>
-          </div>
+          <h3 className="max-w-2xl text-4xl sm:text-6xl md:text-7xl font-medium leading-[.98] tracking-[-0.055em]">
+            The future is <span className="text-white/45">automated.</span>
+          </h3>
+          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/55">
+            AI systems that help ambitious businesses respond faster, operate smarter, and scale without unnecessary complexity.
+          </p>
         </div>
 
-        {/* Right Side: Links (Company Only) - Vertical & Aligned Right */}
-        <div className="flex flex-col items-end">
-          <div className="space-y-6 text-right">
-            <h4 className="text-indigo-400 text-sm font-black uppercase tracking-[0.2em]">Company</h4>
-            <ul className="flex flex-col gap-4">
-              {companyLinks.map((link, i) => (
-                <li key={i}>
-                  <a href={link.href} className="text-slate-400 hover:text-white transition-colors duration-300 font-medium whitespace-nowrap block">
-                    {link.name}
-                  </a>
+        <div className="flex flex-col items-start lg:items-end">
+          <div className="space-y-5 lg:text-right">
+            <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/40">Explore</p>
+            <ul className="flex flex-col gap-3">
+              {companyLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-white/65 hover:text-white transition-colors font-medium">{link.name}</a>
                 </li>
               ))}
             </ul>
@@ -70,35 +48,25 @@ export function Footer() {
         </div>
       </div>
 
-      {/* THE BIG TEXT - Perfectly Centered & Edge-to-Edge */}
-      <div className="w-full mt-24 flex flex-col items-center justify-end overflow-hidden border-t border-white/5 pt-16">
-
-        {/* Repositioned Copyright - Moved above the big text to allow big text to hit the bottom */}
+      <div className="w-full border-t border-white/10 pt-8">
         <MotionP
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="text-slate-600 text-[10px] md:text-sm font-bold uppercase tracking-[0.5em] mb-12"
+          viewport={{ once: true }}
+          className="mx-auto mb-10 max-w-[1380px] text-[10px] sm:text-xs font-medium uppercase tracking-[0.25em] text-white/35"
         >
-          © {currentYear} naangle — Build. Scale. Automate.
+          © {currentYear} Naangle — Build. Scale. Automate.
         </MotionP>
-
         <MotionDiv
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full select-none pointer-events-none flex justify-center items-end"
+          transition={{ duration: 1 }}
+          className="w-full select-none pointer-events-none flex justify-center items-end overflow-hidden"
         >
-          <h1 className="text-[21.7vw] font-black text-white leading-none tracking-[-0.08em] uppercase whitespace-nowrap mb-[-2vw]">
-            naangl<span className="ml-[1px]">e</span>
-          </h1>
+          <h1 className="text-[24vw] font-black leading-[.78] tracking-[-0.09em] uppercase whitespace-nowrap text-white">naangle</h1>
         </MotionDiv>
       </div>
-
-      {/* Background Decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-indigo-500/5 to-transparent pointer-events-none" />
     </footer>
   );
 }
-
