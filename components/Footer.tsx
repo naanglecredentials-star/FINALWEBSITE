@@ -64,7 +64,7 @@ export function Footer() {
           transition={{ duration: 1 }}
           className="w-full select-none pointer-events-none flex justify-center items-end overflow-hidden"
         >
-          <h1 className="text-[15vw] font-black leading-[.8] tracking-[-0.08em] uppercase whitespace-nowrap text-white">naangle</h1>
+          <h1 className="text-[20vw] font-black leading-[.8] tracking-[-0.08em] uppercase whitespace-nowrap text-white">naangle</h1>
         </MotionDiv>
       </div>
     </footer>
